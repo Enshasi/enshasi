@@ -1,0 +1,106 @@
+// ctrl  + alt + shift + l => format in phpstorm
+//php artisan mi:f --seed  => fresh db , run seed
+//php artisan make:controller GraduatedController --resource
+
+php artisan make:seeder UserSeeder
+php artisan make:seeder StudentsTableSeeder
+php artisan make:seeder ParentsTableSeeder
+php artisan make:seeder SectionsTableSeeder
+php artisan make:seeder GradeSeeder
+php artisan make:seeder ClassroomTableSeeder
+
+//lang library
+
+1-composer require mcamara/laravel-localization
+2-php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+3- config/laravellocalization/     //1-شيل التعليق عن اللغة العربية  2-وضع تعليق على اللغة الأسبانيه
+
+4- App/Http/kernal => add
+
+  protected $routeMiddleware = [
+
+   /**** OTHER MIDDLEWARE ****/
+           'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+           'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+           'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+           'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
+           'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class
+
+   ]
+
+5-Rout / add page need teransoform en/ar
+
+
+Route::group(['prefix' => LaravelLocalization::setLocale()], function()
+{
+
+    Route::get('/', function () {
+        return view('dashboard');
+    });
+
+});
+
+
+//اظهار اخر لغة كان حاططها في اخر زياره
+Route::group(
+[
+	'prefix' => LaravelLocalization::setLocale(),
+	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function(){ //...
+});
+
+
+
+
+// حل مشكلة الأدخال داخل قاعدة البيانات ب اكثر من لغة عن طريق هاذي المكتبه
+
+
+1 - composer require spatie/laravel-translatable
+2 - php artisan vendor:publish --provider="Spatie\Translatable\TranslatableServiceProvider"
+    php artisan vendor:publish --tag=filament-spatie-laravel-translatable-plugin-config
+///..................................................
+livewaer
+
+1 - composer require livewire/livewire
+2 - php artisan make:livewire counter     //create
+//.....................................................
+//اضافة مرفقات
+//create Model and migrate
+1 -php artisan make:model ParentAttachment -m
+2 - File Model :  protected $fillable = ['file_name' , 'parent_id'];
+3-     use WithFileUploads;   // use Livewire\WithFileUploads;
+4 -config file system ->
+
+//.....................................................
+//design Patte
+1- Created Filoder 2
+    - TeacherRepository
+     - TeacherRepositoryInterface
+2 - create controller
+
+
+
+//////////////////////
+لو في عندي جدولين مرتبطين مع بعض ولازم يكونن الأثنين صح بستخدك
+public function Store_Student($request){
+
+  1 - DB::beginTransaction();
+
+    try {
+
+  2 -  DB::commit();
+    }
+       catch (\Exception $e){
+
+
+  3-   DB::rollback();
+   }
+
+
+}
+/// intgration with zoom
+
+composer update --ignore-platform-reqs
+
+
+composer require php-http/curl-client
