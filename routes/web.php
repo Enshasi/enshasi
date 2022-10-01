@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\library\libraryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth ;
 /*
@@ -169,6 +170,29 @@ Route::group(
     Route::get('Questions/edit/{id}', 'App\Http\Controllers\Questions\QuestionController@edit');
     Route::post('Questions/update', 'App\Http\Controllers\Questions\QuestionController@update');
     Route::post('Questions/destroy', 'App\Http\Controllers\Questions\QuestionController@destroy');
+
+    //Online_classes
+
+    Route::get('Online_classes/index', 'App\Http\Controllers\Online_Classe\OnlineClasseController@index');
+    Route::get('Online_classes/create', 'App\Http\Controllers\Online_Classe\OnlineClasseController@create');
+    Route::post('Online_classes/store', 'App\Http\Controllers\Online_Classe\OnlineClasseController@store');
+    Route::post('Online_classes/destroy', 'App\Http\Controllers\Online_Classe\OnlineClasseController@destroy');
+    Route::get('indirect/create', 'App\Http\Controllers\Online_Classe\OnlineClasseController@indirectCreate')->name('indirect.create');
+    Route::post('indirect/store', 'App\Http\Controllers\Online_Classe\OnlineClasseController@storeIndirect')->name('indirect.store');
+
+    //library
+    Route::get('library/index', 'App\Http\Controllers\library\libraryController@index');
+    Route::get('library/create', 'App\Http\Controllers\library\libraryController@create');
+    Route::post('library/store', 'App\Http\Controllers\library\libraryController@store');
+    Route::get('library/edit/{id}', 'App\Http\Controllers\library\libraryController@edit');
+    Route::post('library/update', 'App\Http\Controllers\library\libraryController@update');
+    Route::post('library/destroy', 'App\Http\Controllers\library\libraryController@destroy');
+    Route::post('library/downloadAttachment/{filename}', 'App\Http\Controllers\library\libraryController@download');
+
+
+    Route::get('settings/index', 'App\Http\Controllers\settings\SettingController@index');
+    Route::post('settings/update', 'App\Http\Controllers\settings\SettingController@update');
+
 
     //Livewirreceipt_
     Route::view('add_parent','livewire.show_Form');

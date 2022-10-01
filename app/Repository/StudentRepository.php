@@ -70,6 +70,7 @@ class StudentRepository implements StudentRepositoryInterface{
 
                 }
             }
+
             DB::commit();//الموافقة انو يضيفهن في الدايتا بيز
             toastr()->success(trans('messages.success'));
             return redirect()->back();

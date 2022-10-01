@@ -182,39 +182,29 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="library-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                            <li> <a href="{{ url('library/index') }}">قائمة الكتب</a> </li>
+
                         </ul>
                     </li>
 
 
                     <!-- Onlinec lasses-->
-                    <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Onlineclasses-icon">
-                            <div class="pull-left"><i class="fas fa-video"></i><span class="right-nav-text">{{trans('main_trans.Onlineclasses')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="">الأتصال المباشر مع زوم</a> </li>
-                            <li> <a href="">الأتصال المباشر مع زوم</a> </li>
-                        </ul>
-                    </li>
+{{--                    <li>--}}
+{{--                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Onlineclasses-icon">--}}
+{{--                            <div class="pull-left"><i class="fas fa-video"></i><span class="right-nav-text">{{trans('main_trans.Onlineclasses')}}</span></div>--}}
+{{--                            <div class="pull-right"><i class="ti-plus"></i></div>--}}
+{{--                            <div class="clearfix"></div>--}}
+{{--                        </a>--}}
+{{--                        <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">--}}
+{{--                            <li> <a href="{{url('Online_classes/index')}}">حصص أونلاين على زوم</a> </li>--}}
+{{--                            <li> <a href="">الأتصال المباشر مع زوم</a> </li>--}}
+{{--                        </ul>--}}
+{{--                    </li>--}}
 
 
                     <!-- Settings-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Settings-icon">
-                            <div class="pull-left"><i class="fas fa-cogs"></i><span class="right-nav-text">{{trans('main_trans.Settings')}}</span></div>
-                            <div class="pull-right"><i class="ti-plus"></i></div>
-                            <div class="clearfix"></div>
-                        </a>
-                        <ul id="Settings-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
-                        </ul>
+                        <a href="{{url('settings/index')}}"><i class="fas fa-cogs"></i><span class="right-nav-text">{{trans('main_trans.Settings')}} </span></a>
                     </li>
 
 

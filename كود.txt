@@ -100,7 +100,11 @@ public function Store_Student($request){
 }
 /// intgration with zoom
 
-composer update --ignore-platform-reqs
+1- composer require macsidigital/laravel-zoom
+2 - php artisan vendor:publish --provider="MacsiDigital\Zoom\Providers\ZoomServiceProvider"
+3- add File .env
+       a-ZOOM_CLIENT_KEY=    and  ZOOM_CLIENT_SECRET=
 
 
-composer require php-http/curl-client
+5 - Got to app zoom and get the  key and script  >>> https://marketplace.zoom.us/develop/apps/84WPcUJyT6iDj2jA8D0CJw/information
+//.....................................................
