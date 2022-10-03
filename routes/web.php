@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController ;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\library\libraryController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth ;
@@ -14,14 +16,19 @@ use Illuminate\Support\Facades\Auth ;
 |
 */
 
+//Auth::routes();
+
+Route::get('/', [HomeController::class ,'index'])->name('selection');
 
 
-Auth::routes();
-//فقط الناس يلي ما سجلت  يروح على صفحة التسجيل
-Route::group(['middleware'=>['guest']], function(){
-    Route::get('/', function () {return view('auth.login');});
-}
-);
+Route::group(['namespace' => 'Auth'], function () {
+
+    Route::get('/login/{type}',[LoginController::class , 'loginForm'])->middleware('guest')->name('login.show');
+    Route::post('/login',[LoginController::class , 'login'])->name('login');
+
+});
+
+
 // Group Lang
 Route::group(
     [
@@ -33,8 +40,7 @@ Route::group(
 //    });
 
     //Auth
-    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
     //grade
     Route::get('/grades', 'App\Http\Controllers\Grades\GradeController@index');
     Route::post('/grades/store', 'App\Http\Controllers\Grades\GradeController@store');

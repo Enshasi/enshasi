@@ -108,3 +108,12 @@ public function Store_Student($request){
 
 5 - Got to app zoom and get the  key and script  >>> https://marketplace.zoom.us/develop/apps/84WPcUJyT6iDj2jA8D0CJw/information
 //.....................................................
+#promation
+
+1 - file-config -> auth.php
+2 - namespace App\Http\Middleware\RedirectIfAuthenticated;
+3 - App\Providers\RouteServiceProvider.php
+4 - App\Http\Middleware\Authenticate
+5- add page in auth section.blade.php
+6 - //Auth::routes();
+7 -

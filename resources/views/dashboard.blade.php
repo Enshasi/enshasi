@@ -516,7 +516,7 @@
                 </div>
                 <div class="col-xl-4 mb-30">
                     <div class="card card-statistics h-100">
-                        <div class="p-4 text-center bg" style="background: url(images/bg/01.jpg);">
+                        <div class="p-4 text-center bg" style="background: {{url('images/bg/01.jpg')}}">
                             <h5 class="mb-70 text-white position-relative">Michael Bean </h5>
                             <div class="btn-group info-drop">
                                 <button type="button" class="dropdown-toggle-split text-white" data-toggle="dropdown"
