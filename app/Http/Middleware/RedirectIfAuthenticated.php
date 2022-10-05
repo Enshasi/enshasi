@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RedirectIfAuthenticated
 {
+
     public function handle($request, Closure $next)
     {
         if (auth('web')->check()) {
