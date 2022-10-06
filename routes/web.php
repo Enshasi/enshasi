@@ -59,7 +59,7 @@ Route::group(
     Route::get('classes/{id}', 'App\Http\Controllers\sections\SectionsController@getclasses');
 
     //sections
-    Route::get('Sections/index', 'App\Http\Controllers\sections\SectionsController@index');
+    Route::get('Sections/index', 'App\Http\Controllers\sections\SectionsController@index')->name('Sections.index');
     Route::post('Sections/store', 'App\Http\Controllers\sections\SectionsController@store');
     Route::post('Sections/update', 'App\Http\Controllers\sections\SectionsController@update');
 
@@ -67,7 +67,7 @@ Route::group(
 
 
     //Teachers
-    Route::get('Teachers', 'App\Http\Controllers\Teachers\TeachersController@index');
+    Route::get('Teachers', 'App\Http\Controllers\Teachers\TeachersController@index')->name('Teachers.index');
     Route::get('Teachers/create', 'App\Http\Controllers\Teachers\TeachersController@create');
     Route::post('Teachers/store', 'App\Http\Controllers\Teachers\TeachersController@store');
     Route::get('Teachers/edit/{id}', 'App\Http\Controllers\Teachers\TeachersController@edit');
@@ -77,7 +77,7 @@ Route::group(
 
 //    students
     Route::get('students/create', 'App\Http\Controllers\students\StudentController@create');
-    Route::get('student/index', 'App\Http\Controllers\students\StudentController@index');
+    Route::get('student/index', 'App\Http\Controllers\students\StudentController@index')->name('Students.index');
     Route::post('students/store', 'App\Http\Controllers\students\StudentController@store');
     Route::get('students/edit/{id}', 'App\Http\Controllers\students\StudentController@edit');
     Route::post('students/update', 'App\Http\Controllers\students\StudentController@update');
@@ -201,7 +201,7 @@ Route::group(
 
 
     //Livewirreceipt_
-    Route::view('add_parent','livewire.show_Form');
+    Route::view('add_parent','livewire.show_Form')->name('add_parent');
 
 
 

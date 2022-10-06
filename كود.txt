@@ -117,3 +117,42 @@ public function Store_Student($request){
 5- add page in auth section.blade.php
 6 - //Auth::routes();
 7 -
+
+
+/////
+امشي على خطوات هاذا الموقع
+//https://www.tutsmake.com/laravel-livewire-fullcalendar-integration-example/
+livewere
+1 -php artisan make:model Event -m
+2 -
+       Schema::create('events', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('start');
+            $table->timestamps();
+        });
+
+3 - php artisan migrate
+
+4 - composer require livewire/livewire    -> لو أول مرة بستخجم ال لايف وير عندي
+
+5 - php artisan make:livewire calendar
+
+6 - app/Http/Livewire /Calendar.php   ->حطيت جواته كود
+
+7 - resources/views/livewire/calendar.blade.php   -> في جواته كود
+
+8 - page view using livewere
+   @livewireStyles
+
+
+      <livewire:calendar />
+
+
+
+
+    @livewireScripts
+    @stack('scripts')
+
+
+

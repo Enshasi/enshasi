@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Student;
+use App\Models\student_account;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +16,7 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+
+        return view('dashboard' );
     }
 }
