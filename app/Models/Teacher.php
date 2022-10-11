@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Teacher extends Model
+class Teacher extends Authenticatable
 {
     use HasTranslations ;
-    public $translatable = ['Name'] ;
+    public $translatable = ['Name' ] ;
     protected $guarded = [] ;
     // علاقة بين المعلمين والتخصصات لجلب اسم التخصص
     public function specializations()
@@ -24,9 +25,9 @@ class Teacher extends Model
     }
 
 
-// علاقة المعلمين مع الاقسام
+    // علاقة المعلمين مع الاقسام
     public function Sections()
     {
-        return $this->belongsToMany(Sections::class, 'teacher_section' , 'teacher_id');
+        return $this->belongsToMany('App\Models\Sections','teacher_section');
     }
 }

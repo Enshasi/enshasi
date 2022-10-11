@@ -16,71 +16,45 @@ class TeachersController extends Controller
         $this->Teacher = $Teacher;
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $Teachers = $this->Teacher->getAllTeachers();
-        return view('page.Teachers.Teachers', compact('Teachers'));
+        //$Teachers = Teacher::all();
+        return view('page.Teachers.Teachers',compact('Teachers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
-   {
-       $specializations  =  $this->Teacher->Getspecialization();
-       $genders = $this->Teacher->Getgender();
-       return view('page.Teachers.create' , compact('specializations' ,'genders'));
+    {
+         $specializations = $this->Teacher->Getspecialization();
+         $genders = $this->Teacher->GetGender();
+         return view('page.Teachers.create',compact('specializations','genders'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(StoreTeachers $request)
     {
-        return $this->Teacher->StoreTeachers($request);
+      return $this->Teacher->StoreTeachers($request);
+    }
+
+
+    public function show($id)
+    {
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        $Teachers = $this->Teacher->EditTeachers($id);
+        $Teachers = $this->Teacher->editTeachers($id);
         $specializations = $this->Teacher->Getspecialization();
-        $genders = $this->Teacher->Getgender();
-        return view('page.Teachers.edit' , compact('Teachers' , 'genders' , 'specializations'));
+        $genders = $this->Teacher->GetGender();
+        return view('page.Teachers.edit',compact('Teachers','specializations','genders'));
     }
 
 
     public function update(Request $request)
     {
         return $this->Teacher->UpdateTeachers($request);
-
-
     }
 
     /**
@@ -91,6 +65,6 @@ class TeachersController extends Controller
      */
     public function destroy(Request $request)
     {
-       return $this->Teacher->DeleteTeachers($request);
+        return $this->Teacher->DeleteTeachers($request);
     }
 }
