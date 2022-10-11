@@ -1,6 +1,9 @@
 <?php
 
 // use App\Models\auth;
+use App\Http\Controllers\Dashboard\StudentController;
+
+
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,6 +37,8 @@ Route::group(
         return view('page.Teachers.dashboard.dashboard',compact('count_sections' ,'count_students'));
         // return view('page.Teachers.dashboard.dashboard');
     });
+    Route::get('student' , [StudentController::class , 'index'])->name('student.index');
+
 
 });
 
