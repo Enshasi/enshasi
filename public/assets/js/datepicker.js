@@ -4,7 +4,7 @@ Template:  Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template
 Author: potenzaglobalsolutions.com
 Design and Developed by: potenzaglobalsolutions.com
 
-NOTE: 
+NOTE:
 
 */
 
@@ -13,8 +13,10 @@ NOTE:
 // Line Stacked
 
     $('.date-picker-default').datepicker({
-        format: 'mm-dd-yyyy',
+        format: 'yyyy-mm-dd',
+        clearBtn: true,
         autoclose: true,
+        todayHighlight: true,
         orientation: "bottom",
         templates: {
             leftArrow: '<i class="fa fa-angle-left"></i>',
@@ -41,7 +43,7 @@ NOTE:
             rightArrow: '<i class="fa fa-angle-right"></i>'
         }
     });
-    
+
 
     $('#datepicker-inline').datepicker({
         todayHighlight: true,

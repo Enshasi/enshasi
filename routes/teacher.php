@@ -4,6 +4,9 @@
 use App\Http\Controllers\Dashboard\StudentController;
 
 
+use App\Http\Controllers\Teachers\QuestionsController;
+use App\Http\Controllers\Teachers\quezzController;
+use App\Models\Quizze;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -38,7 +41,12 @@ Route::group(
         // return view('page.Teachers.dashboard.dashboard');
     });
     Route::get('student' , [StudentController::class , 'index'])->name('student.index');
-
-
+    Route::get('section' , [StudentController::class , 'Section'])->name('section');
+    Route::post('attendance',[StudentController::class , 'attendance'])->name('attendance');
+    Route::post('edit_attendance',[StudentController::class , 'editAttendance'])->name('attendance.edit');
+    Route::get('attendance_report',[StudentController::class , 'attendanceReport'])->name('attendance.report');
+    Route::post('attendance_search',[StudentController::class , 'attendancesearch'])->name('attendance.search');
+    Route::resource('quizzes' , quezzController::class);
+     Route::resource("Questions" , QuestionsController::class);
 });
 

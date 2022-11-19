@@ -67,4 +67,5 @@ class TeachersController extends Controller
     {
         return $this->Teacher->DeleteTeachers($request);
     }
+
 }

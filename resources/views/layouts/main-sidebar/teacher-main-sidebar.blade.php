@@ -12,6 +12,12 @@
         <!-- menu title -->
         <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">{{trans('main_trans.Programname')}} </li>
 
+        <!-- الاقسام-->
+        <li>
+            <a href="{{route('section')}}"><i class="fas fa-chalkboard"></i><span
+                    class="right-nav-text">الاقسام</span></a>
+        </li>
+
         <!-- الطلاب-->
         <li>
             <a href="{{route('student.index')}}"><i class="fas fa-user-graduate"></i><span
@@ -19,15 +25,39 @@
         </li>
 
 
-        <!-- الامتحانات-->
+        <!-- الأختبارات -->
         <li>
-            <a href="{{url('settings/index')}}"><i class="fas fa-book-open"></i><span
-                    class="right-nav-text">الامتحانات</span></a>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections-menu">
+                <div class="pull-left"><i class="fas fa-chalkboard"></i><span
+                        class="right-nav-text"> الأختبارت</span></div>
+                <div class="pull-right"><i class="ti-plus"></i></div>
+                <div class="clearfix"></div>
+            </a>
+            <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
+                <li><a href="{{route('quizzes.index')}}">قائمة الأختبارت </a></li>
+                <li><a href="#">قائمة الأسئلة </a></li>
+            </ul>
+
+        </li>
+
+        <!-- sections-->
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#sections-menu">
+                <div class="pull-left"><i class="fas fa-chalkboard"></i><span
+                        class="right-nav-text">التقارير</span></div>
+                <div class="pull-right"><i class="ti-plus"></i></div>
+                <div class="clearfix"></div>
+            </a>
+            <ul id="sections-menu" class="collapse" data-parent="#sidebarnav">
+                <li><a href="{{route('attendance.report')}}">تقرير الحضور والغياب</a></li>
+                <li><a href="#">تقرير الامتحانات</a></li>
+            </ul>
+
         </li>
 
         <!-- الملف الشخصي-->
         <li>
-            <a href="{{url('settings/index')}}"><i class="fas fa-id-card-alt"></i><span
+            <a href="{{url('settings.index')}}"><i class="fas fa-id-card-alt"></i><span
                     class="right-nav-text">الملف الشخصي</span></a>
         </li>
 

@@ -76,7 +76,7 @@ Route::group(
 
 
 //    students
-    Route::get('students/create', 'App\Http\Controllers\students\StudentController@create');
+    Route::get('student/create', 'App\Http\Controllers\students\StudentController@create');
     Route::get('student/index', 'App\Http\Controllers\students\StudentController@index')->name('Students.index');
     Route::post('students/store', 'App\Http\Controllers\students\StudentController@store');
     Route::get('students/edit/{id}', 'App\Http\Controllers\students\StudentController@edit');
@@ -102,8 +102,8 @@ Route::group(
 
 
     //complete use relation
-    Route::get('/Get_classrooms/{id}', 'App\Http\Controllers\students\StudentController@Get_classrooms');
-    Route::get('/Get_Sections/{id}', 'App\Http\Controllers\students\StudentController@Get_Sections');
+    ///Route::get('/Get_classrooms/{id}', 'App\Http\Controllers\students\StudentController@Get_classrooms');
+    //Route::get('/Get_Sections/{id}', 'App\Http\Controllers\students\StudentController@Get_Sections');
    //Fees Fees/create  Fees/destroy  Fees/store
     Route::get('fees/index', 'App\Http\Controllers\Fees\FeesController@index');
     Route::get('Fees/create', 'App\Http\Controllers\Fees\FeesController@create');

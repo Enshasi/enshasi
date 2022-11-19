@@ -143,6 +143,7 @@
                                                                                                        name="id"
                                                                                                        class="form-control"
                                                                                                        value="{{ $list_Sections->id }}">
+
                                                                                             </div>
 
                                                                                         </div>
@@ -158,7 +159,7 @@
                                                                                                 <!--placeholder-->
                                                                                                 <option
                                                                                                     value="{{ $Grade->id }}">
-                                                                                                    {{ $Grade->Name }}
+                                                                                                    {{ $Grade->name }}
                                                                                                 </option>
                                                                                                 @foreach ($list_Grades as $list_Grade)
                                                                                                     <option
