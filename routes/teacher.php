@@ -4,6 +4,7 @@
 use App\Http\Controllers\Dashboard\StudentController;
 
 
+use App\Http\Controllers\Teachers\ProfileController;
 use App\Http\Controllers\Teachers\QuestionsController;
 use App\Http\Controllers\Teachers\quezzController;
 use App\Models\Quizze;
@@ -48,5 +49,9 @@ Route::group(
     Route::post('attendance_search',[StudentController::class , 'attendancesearch'])->name('attendance.search');
     Route::resource('quizzes' , quezzController::class);
      Route::resource("Questions" , QuestionsController::class);
+     //Profile
+    Route::get('profile',[ProfileController::class , 'index'])->name('profile.index');
+    Route::post('profile/{id}',[ProfileController::class , 'update'])->name('profile.update');
+
 });
 

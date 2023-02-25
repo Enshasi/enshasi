@@ -94,6 +94,7 @@
                                         <div class="mb-3">
                                             <img style="width: 100px" height="100px" src="{{ URL::asset('attachments/logo/'.'17141208691664604706laravel.jpg') }}" alt="">
                                         </div>
+
                                         <input name="logo" accept="image/*" type="file" class="file-input" data-show-caption="false" data-show-upload="false" data-fouc>
                                     </div>
                                 </div>
